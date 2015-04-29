@@ -9,7 +9,16 @@ get('/') do
   erb(:index)
 end
 
-get('/:id') do
+get('/all_genres/') do
+  @all_genres = CdRack.all()
+  erb(:all_genres)
+end
+
+get('/all_genres/new') do
+  erb(:genre_form)
+end
+
+get('/all_genres/:id') do
   @genre = CdRack.find(params.fetch('id').to_i())
   erb(:genre_page)
 end
@@ -18,7 +27,7 @@ get('/new') do
   erb(:genre_form)
 end
 
-post('/') do
+post('/all_genres') do
   name = params.fetch('name')
   CdRack.new(name).save()
   @all_genres = CdRack.all()
@@ -30,10 +39,10 @@ get('/:id') do
   erb(:genre_page)
 end
 
-# get('/:id/all_cds/new') do
-#   @genre = CdRack.find(params.fetch('id').to_i())
-#   erb(:genre_cd_form)
-# end
+get('/all_genres/:id/all_cds/new') do
+  @genre = CdRack.find(params.fetch('id').to_i())
+  erb(:genre_cd_form)
+end
 
 post('/all_cds') do
   album = params.fetch('album')

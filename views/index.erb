@@ -1,8 +1,14 @@
 <h1>Genres</h1>
-<ul>
+<ol>
   <% @all_genres.each() do |genre| %>
-  <li><a href="/<%= genre.id() %>"><%= genre.name() %></a></li>
+  <li><a href="/all_genres/<%= genre.id() %>"><%= genre.genre() %></a></li>
   <% end %>
-</ul>
+</ol>
 
-<a href="/new">Add New Genre</a>
+<br>
+<br>
+<!-- <ul>
+  <li><a href="/all_genres/">See Genres</a></li>
+  <li></li>
+</ul> -->
+<a href="/all_genres/new">Add New Genre</a>
