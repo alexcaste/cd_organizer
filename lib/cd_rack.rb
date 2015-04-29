@@ -4,10 +4,15 @@ class CdRack
   define_method(:initialize) do |genre|
     @genre = genre
     @id = @@all_genres.length().+(1)
+    @cds = []
   end
 
   define_method(:genre) do
     @genre
+  end
+
+  define_method(:cds) do
+    @cds
   end
 
   define_method(:save) do
@@ -34,6 +39,10 @@ class CdRack
       end
     end
     found_genre
+  end
+
+  define_method(:add_cd) do |cd|
+    @cds.push(cd)
   end
 
 end

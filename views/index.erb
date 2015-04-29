@@ -1,0 +1,8 @@
+<h1>Genres</h1>
+<ul>
+  <% @all_genres.each() do |genre| %>
+  <li><a href="/<%= genre.id() %>"><%= genre.name() %></a></li>
+  <% end %>
+</ul>
+
+<a href="/new">Add New Genre</a>
